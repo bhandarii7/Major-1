@@ -1,6 +1,8 @@
 import axios from "axios";
 import FormData from "form-data";
 
+// const dotenv = require("dotenv");
+
 export const pinFileToIPFS = async (image, propertyId) => {
     const url = `https://api.pinata.cloud/pinning/pinFileToIPFS`;
 
@@ -39,8 +41,8 @@ export const pinFileToIPFS = async (image, propertyId) => {
             maxBodyLength: "Infinity",
             headers: {
                 "Content-Type": `multipart/form-data; boundary=${data._boundary}`,
-                pinata_api_key: process.env.REACT_APP_PINATA_API_KEY,
-                pinata_secret_api_key: process.env.REACT_APP_PINATA_SECRET_KEY,
+                pinata_api_key: '89dd67454198bc8148a0',
+                pinata_secret_api_key: 'ac9b432b997bf9d3de6d419ab7f963ba2d647cba4ad58535988a8fbad8772b2d',
             },
         });
         //handle response here

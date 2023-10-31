@@ -14,24 +14,28 @@ import {
     Grid,
     ListItemIcon,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
 import ApprovalIcon from "@mui/icons-material/Approval";
-import RequestListItem from "../../components/admin/RequestListItem";
+
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase";
+
+import RequestListItem from "../../components/admin/RequestListItem";
 import Wallet from "../../components/admin/Wallet.png";
-import { useNavigate } from "react-router-dom";
 
 function Admin() {
     const [data, setData] = useState([]);
     const [walletAddress, setWalletAddress] = useState("");
-    const [approved, setApproved] = useState(8);
-    const [pending, setPending] = useState(7);
+    const [approved, setApproved] = useState(0);
+    const [pending, setPending] = useState(1);
     const navigate = useNavigate();
 
     useEffect(() => {
         handleConnect();
     }, []);
+
     const handleConnect = () => {
         window.ethereum
             .request({ method: "eth_requestAccounts" })
@@ -42,11 +46,16 @@ function Admin() {
 
     useEffect(() => {
         const getProperties = async () => {
+
+            // gets all properties listed for verification from firebase
+
             const snapshot = await getDocs(collection(db, "ListedProperties"));
             let tData = [];
+
             snapshot.forEach((doc) => {
                 // console.log(doc.id, " => ", doc.data());
                 let temp = doc.data();
+                console.log(temp)
 
                 if (temp.authorize !== true) {
                     tData.push({ ...doc.data(), id: doc.id });
@@ -55,6 +64,8 @@ function Admin() {
             setData(tData);
             console.log(tData);
         };
+
+        
         getProperties();
     }, []);
 
@@ -99,7 +110,7 @@ function Admin() {
                             <img src="/logo.png" width={"40px"} />
                         </ListItemIcon>
                         <ListItemText>
-                            <h2>3 Bricks</h2>
+                            <h2>RealXchange</h2>
                         </ListItemText>
                     </ListItem>
                 </div>

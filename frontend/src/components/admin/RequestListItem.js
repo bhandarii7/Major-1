@@ -1,10 +1,10 @@
 import { Box, Button, Paper, Typography } from "@mui/material";
-import { doc, updateDoc } from "firebase/firestore";
 import { useSnackbar } from "notistack";
 import React, { useState } from "react";
-import { db } from "../../config/firebase";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../../config/firebase";
 import { providers, Contract } from "ethers";
 import { contractAddress } from "../../constants";
 
@@ -114,7 +114,7 @@ const RequestListItem = (props) => {
                 error={error}
                 steps={[
                     "Uploading Title Deed to IPFS",
-                    "Transacting with 3 Bricks smart contract",
+                    "Transacting with RealXchange smart contract",
                     "Minting NFT",
                     "Success",
                 ]}

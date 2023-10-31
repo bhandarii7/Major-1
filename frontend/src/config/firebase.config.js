@@ -9,11 +9,11 @@
 
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyCA96Ic3fhVZCyqQzqCliBsa4u5dajR-2k",
-  authDomain: "major1-1beaf.firebaseapp.com",
-  projectId: "major1-1beaf",
-  storageBucket: "major1-1beaf.appspot.com",
-  messagingSenderId: "409413166112",
-  appId: "1:409413166112:web:0b57e0960d95b066370845",
-  measurementId: "G-JB0LG2LRHK"
+  apiKey: "AIzaSyCvu8ZjzGV-_mjv5wCAgScb2JzQp_RtIrk",
+  authDomain: "major-project-90bb8.firebaseapp.com",
+  projectId: "major-project-90bb8",
+  storageBucket: "major-project-90bb8.appspot.com",
+  messagingSenderId: "553582989386",
+  appId: "1:553582989386:web:d6dbd297450388460756b3",
+  measurementId: "G-88PYNJ5YB3"
 };
